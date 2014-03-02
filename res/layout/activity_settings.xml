@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:cacheColorHint="@android:color/background_dark"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/textSourceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="4dp"
+        android:text="@string/download_source"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/primary_text_dark" />
+
+    <EditText
+        android:id="@+id/sttUrlEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff151515"
+        android:ems="10"
+        android:hint="@string/download_url"
+        android:inputType="textUri"
+        android:padding="8dp"
+        android:textColor="@android:color/primary_text_dark" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <EditText
+        android:id="@+id/sttIdEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff151515"
+        android:ems="10"
+        android:hint="@string/download_id"
+        android:inputType="textUri"
+        android:maxEms="2"
+        android:minEms="2"
+        android:padding="8dp"
+        android:textColor="@android:color/primary_text_dark" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <EditText
+        android:id="@+id/sttTokenEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ff151515"
+        android:ems="10"
+        android:hint="@string/download_token"
+        android:inputType="textPassword"
+        android:padding="8dp"
+        android:textColor="@android:color/primary_text_dark" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="2dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Spinner
+            android:id="@+id/sttDownloadDaysEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/textDownloadDaysView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="7"
+            android:text="@string/download_days"
+            android:paddingLeft="8dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@android:color/primary_text_dark" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/sttButtonCancel"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:alpha=".6"
+            android:background="@android:color/holo_red_dark"
+            android:text="@string/settings_cancel"
+            android:textColor="@android:color/primary_text_dark" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/sttButtonReset"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:alpha=".6"
+            android:background="@android:color/holo_orange_dark"
+            android:text="@string/settings_reset"
+            android:textColor="@android:color/primary_text_dark" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/sttButtonSave"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="10"
+            android:alpha=".6"
+            android:background="@android:color/holo_green_dark"
+            android:text="@string/settings_save"
+            android:textColor="@android:color/primary_text_dark" />
+
+    </LinearLayout>
+
+</LinearLayout>

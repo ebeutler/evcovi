@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Evcovi</string>
+    <string name="action_settings">Einstellungen</string>
+    <string name="more_info">Mehr Informationen unter:</string>
+    <string name="phone">Tel.:</string>
+    <string name="email">Email:</string>
+    <string name="web">Web:</string>
+    <string name="image_alt">Bild zur angezeigten Veranstaltung.</string>
+    <string name="no_network_response">Daten anfrage gescheitert. Bitte prüfen Sie die Einstellungen.</string>
+    <string name="new_events_available">Neue Veranstaltungen sind verfügbar. (%1$s)</string>
+    <string name="no_new_events_available">Keine neuen Veranstaltungen gefunden.</string>
+    <string name="download_source">Daten Quelle:</string>
+    <string name="download_url">http://</string>
+    <string name="download_id">ID</string>
+    <string name="download_token">Token</string>
+    <string name="download_days">Tage Laden</string>
+    <string name="settings_cancel">Abbrechen</string>
+    <string name="settings_reset">Zurücksetzen</string>
+    <string name="settings_save">Speichern</string>
+
+</resources>
