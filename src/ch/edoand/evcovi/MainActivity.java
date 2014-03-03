@@ -43,15 +43,17 @@ public class MainActivity extends Activity {
     
     eventPosOnDisplay = 0;
     //TODO load saved data if available
-    //TODO alarm der regelmaessig Daten holt mit notification wenn inaktiv etc.
     loadedEvents = new TreeMap<Long, DisplayEvent>();
+    
+    //TODO einstellungen daten automatisch laden bei start ja / nein
+    //TODO gestures zum "abkreuzen" von events die man nicht mehr sehen will oder haken
+    //       von favoriten
+    //TODO alarm der regelmaessig Daten holt mit notification wenn inaktiv etc.
   }
 
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
     getMenuInflater().inflate(R.menu.main, menu);
-    
-    //TODO button um download manuell auszuloesen
     return true;
   }
   
@@ -67,6 +69,10 @@ public class MainActivity extends Activity {
         Intent prefsIntent = new Intent(this, SettingsActivity.class);
         prefsIntent.putExtra(REQUEST_CODE, PREFS_EDIT);
         startActivityForResult(prefsIntent, PREFS_EDIT);
+        return true;
+      case R.id.menuForceDownload:
+        Toast.makeText(this, R.string.data_request_started, Toast.LENGTH_LONG).show();
+        new AsyncXMLLoader(this).execute();
         return true;
       default:
         return super.onOptionsItemSelected(item);
@@ -89,8 +95,7 @@ public class MainActivity extends Activity {
       preferences.put(SettingsActivity.SETTINGS_DATA_LOAD_DAYS, data.getExtras().getInt(
           SettingsActivity.SETTINGS_DATA_LOAD_DAYS));
 
-      AsyncXMLLoader asyncGet = new AsyncXMLLoader(this);
-      asyncGet.execute();
+      new AsyncXMLLoader(this).execute();
     }
   }
   
@@ -151,7 +156,8 @@ public class MainActivity extends Activity {
     new AsyncImageGet().execute(imageView);
   }
   
-  //Memory leak only temporary for delayed messages, until all messages are displayed
+  //Memory leak only temporary for delayed messages, until all messages are displayed.
+  //So no delayed messages should mean not memory leak for more than a few seconds.
   @SuppressLint("HandlerLeak")
   private Handler handler = new Handler() {
     @Override
