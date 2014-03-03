@@ -12,9 +12,9 @@ public class EventNavigationGestureListener extends SimpleOnGestureListener {
 
   @Override
   public boolean onFling(MotionEvent ev1, MotionEvent ev2, float veloX, float veloY) {
-    if (veloX < -10.0) {
+    if (veloX < -50.0) {
       parentActivity.moveThroughEventList(1);
-    } else if(veloX > 10.0) {
+    } else if(veloX > 50.0) {
       parentActivity.moveThroughEventList(-1);
     }
     return true;
