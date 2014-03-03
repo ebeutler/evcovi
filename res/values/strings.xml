@@ -9,7 +9,7 @@
     <string name="web">Web:</string>
     <string name="image_alt">Bild zur angezeigten Veranstaltung.</string>
     <string name="data_request_started">Daten anfrage gestartet.</string>
-    <string name="no_network_response">Daten anfrage gescheitert. Bitte prüfen Sie die Einstellungen.</string>
+    <string name="no_network_response">Daten anfrage gescheitert. Bitte prüfen Sie die Einstellungen und Netzverbindung.</string>
     <string name="new_events_available">Neue Veranstaltungen sind verfügbar. (%1$s)</string>
     <string name="no_new_events_available">Keine neuen Veranstaltungen gefunden.</string>
     <string name="download_source">Daten Quelle:</string>
