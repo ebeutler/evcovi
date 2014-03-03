@@ -32,6 +32,17 @@
         android:layout_width="match_parent"
         android:layout_height="2dp" />
 
+    <TextView
+        android:id="@+id/textRestrictedSourceView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingLeft="8dp"
+        android:paddingTop="4dp"
+        android:text="@string/download_restricted_source"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@android:color/primary_text_dark" />
+
     <EditText
         android:id="@+id/sttIdEdit"
         android:layout_width="match_parent"

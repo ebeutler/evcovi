@@ -14,6 +14,7 @@
     <string name="no_new_events_available">Keine neuen Veranstaltungen gefunden.</string>
     <string name="download_source">Daten Quelle:</string>
     <string name="download_url">http://</string>
+    <string name="download_restricted_source">Authentifikation (bei nicht öffentlicher Quelle):</string>
     <string name="download_id">ID</string>
     <string name="download_token">Token</string>
     <string name="download_days">Tage Laden</string>
