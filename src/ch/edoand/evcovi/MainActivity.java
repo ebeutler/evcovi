@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
   private GestureDetector gestureDetector;
   private Map<Long, DisplayEvent> loadedEvents;
   private int eventPosOnDisplay;
+  private Toast slideNumberToast;
   
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +46,10 @@ public class MainActivity extends Activity {
     //TODO load saved data if available
     loadedEvents = new TreeMap<Long, DisplayEvent>();
     
+    //TODO mail und web adressen verlinken
+    //TODO datum mit kalender verlinken
+    //TODO adressen auf maps verlinken
+    //TODO video links erlauben
     //TODO einstellungen daten automatisch laden bei start ja / nein
     //TODO gestures zum "abkreuzen" von events die man nicht mehr sehen will oder haken
     //       von favoriten
@@ -121,8 +126,13 @@ public class MainActivity extends Activity {
     if(loadedEvents.values().size() > 0) {
       validateDisplayedEventId();
       display((DisplayEvent)loadedEvents.values().toArray()[eventPosOnDisplay]);
-      Toast.makeText(this, (eventPosOnDisplay + 1) + " / " + loadedEvents.size(), 
-          Toast.LENGTH_SHORT).show();
+      if(slideNumberToast != null) {
+        //prevent queueing of toasts when going through slides fast
+        slideNumberToast.cancel();
+      }
+      slideNumberToast = Toast.makeText(this, (eventPosOnDisplay + 1) + " / " + loadedEvents.size(), 
+          Toast.LENGTH_SHORT);
+      slideNumberToast.show();
     }
   }
   
@@ -144,10 +154,15 @@ public class MainActivity extends Activity {
     ((TextView) findViewById(R.id.evTitleView)).setText(event.getTitle());
     ((TextView) findViewById(R.id.evDescriptionView)).setText(event.getDescription());
     ((TextView) findViewById(R.id.evDateView)).setText(event.getDateString());
+    ((TextView) findViewById(R.id.evVideoView)).setText(event.getVidUrl());
     ((TextView) findViewById(R.id.evLocNameView)).setText(event.getLocName());
     ((TextView) findViewById(R.id.evLocStreetView)).setText(event.getLocStreet());
     ((TextView) findViewById(R.id.evLocZipView)).setText(event.getLocZip());
     ((TextView) findViewById(R.id.evLocCityView)).setText(event.getLocCity());
+    ((TextView) findViewById(R.id.evLocPhoneView)).setText(event.getLocPhone());
+    ((TextView) findViewById(R.id.evLocEmailView)).setText(event.getLocEmail());
+    ((TextView) findViewById(R.id.evLocWebView)).setText(event.getLocWeb());
+    ((TextView) findViewById(R.id.evOrgNameView)).setText(event.getOrgName());
     ((TextView) findViewById(R.id.evOrgPhoneView)).setText(event.getOrgPhone());
     ((TextView) findViewById(R.id.evOrgEmailView)).setText(event.getOrgEmail());
     ((TextView) findViewById(R.id.evOrgWebView)).setText(event.getOrgWeb());

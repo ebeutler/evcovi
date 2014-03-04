@@ -42,6 +42,7 @@ public class XMLResponseHandler implements ResponseHandler<List<DisplayEvent>> {
   private final String WEB = "web";
   private final String IMAGE = "image";
   private final String IMAGE_ASP_RATIO = "1:1";
+  private final String VIDEO = "video";
   
   private List<DisplayEvent> events;
   private DisplayEvent currentEvent;
@@ -123,6 +124,14 @@ public class XMLResponseHandler implements ResponseHandler<List<DisplayEvent>> {
       currentEvent.setLocZip(text);
     } else if(inLocation && CITY.equalsIgnoreCase(currentTag)) {
       currentEvent.setLocCity(text);
+    } else if(inLocation && PHONE.equalsIgnoreCase(currentTag)) {
+      currentEvent.setLocPhone(text);
+    } else if(inLocation && EMAIL.equalsIgnoreCase(currentTag)) {
+      currentEvent.setLocEmail(text);
+    } else if(inLocation && WEB.equalsIgnoreCase(currentTag)) {
+      currentEvent.setLocWeb(text);
+    } else if(inOrganiser && NAME.equalsIgnoreCase(currentTag)) {
+      currentEvent.setOrgName(text);
     } else if(inOrganiser && PHONE.equalsIgnoreCase(currentTag)) {
       currentEvent.setOrgPhone(text);
     } else if(inOrganiser && EMAIL.equalsIgnoreCase(currentTag)) {
@@ -131,6 +140,8 @@ public class XMLResponseHandler implements ResponseHandler<List<DisplayEvent>> {
       currentEvent.setOrgWeb(text);
     } else if((IMAGE + IMAGE_ASP_RATIO).equalsIgnoreCase(currentTag)) {
       currentEvent.setImgUrl1to1(text);
+    } else if(VIDEO.equalsIgnoreCase(currentTag)) {
+      currentEvent.setVidUrl(text);
     }
   }
 

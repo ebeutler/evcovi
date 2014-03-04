@@ -15,10 +15,15 @@ public class DisplayEvent {
   private String locStreet;
   private String locZip;
   private String locCity;
+  private String locPhone;
+  private String locEmail;
+  private String locWeb;
+  private String orgName;
   private String orgPhone;
   private String orgEmail;
   private String orgWeb;
   private String imgUrl1to1;
+  private String vidUrl;
   
   public DisplayEvent(String id) {
     this.id = Long.parseLong(id);
@@ -117,6 +122,38 @@ public class DisplayEvent {
     this.locCity = locCity;
   }
   
+  public String getLocPhone() {
+    return locPhone;
+  }
+  
+  public void setLocPhone(String locPhone) {
+    this.locPhone = locPhone;
+  }
+  
+  public String getLocEmail() {
+    return locEmail;
+  }
+  
+  public void setLocEmail(String locEmail) {
+    this.locEmail = locEmail;
+  }
+  
+  public String getLocWeb() {
+    return locWeb;
+  }
+  
+  public void setLocWeb(String locWeb) {
+    this.locWeb = locWeb;
+  }
+  
+  public String getOrgName() {
+    return orgName;
+  }
+  
+  public void setOrgName(String orgName) {
+    this.orgName = orgName;
+  }
+  
   public String getOrgPhone() {
     return orgPhone;
   }
@@ -147,6 +184,14 @@ public class DisplayEvent {
   
   public void setImgUrl1to1(String imgUrl1to1) {
     this.imgUrl1to1 = imgUrl1to1;
+  }
+  
+  public String getVidUrl() {
+    return vidUrl;
+  }
+  
+  public void setVidUrl(String vidUrl) {
+    this.vidUrl = vidUrl;
   }
   
   @Override

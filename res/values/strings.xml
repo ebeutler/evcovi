@@ -3,10 +3,12 @@
 
     <string name="app_name">Evcovi</string>
     <string name="action_settings">Einstellungen</string>
-    <string name="more_info">Mehr Informationen unter:</string>
+<!--     <string name="more_info">Mehr Informationen unter:</string> 
     <string name="phone">Tel.:</string>
     <string name="email">Email:</string>
-    <string name="web">Web:</string>
+    <string name="web">Web:</string> -->
+    <string name="location">Veranstaltungs Ort</string>
+    <string name="organiser">Veranstalter</string>
     <string name="image_alt">Bild zur angezeigten Veranstaltung.</string>
     <string name="data_request_started">Daten anfrage gestartet.</string>
     <string name="no_network_response">Daten anfrage gescheitert. Bitte prüfen Sie die Einstellungen und Netzverbindung.</string>

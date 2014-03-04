@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:scrollbars="vertical"
     tools:context=".MainActivity" >
 
     <TextView
@@ -42,83 +43,101 @@
         android:contentDescription="@string/image_alt" />
 
     <TextView
+        android:id="@+id/evVideoView"
+        android:layout_gravity="left"
+        android:layout_column="0"
+        android:layout_row="4" />
+    
+    <TextView
+        android:id="@+id/textLocationView"
+        android:layout_gravity="left"
+        android:layout_column="0"
+        android:layout_columnSpan="2"
+        android:layout_row="5"
+        android:text="@string/location" />
+
+    <TextView
+        android:id="@+id/textOrganiserView"
+        android:layout_gravity="left"
+        android:layout_column="3"
+        android:layout_columnSpan="2"
+        android:layout_row="5"
+        android:text="@string/organiser" />
+
+    <TextView
         android:id="@+id/evLocNameView"
         android:layout_column="0"
-        android:layout_columnSpan="5"
+        android:layout_columnSpan="2"
         android:layout_gravity="left"
-        android:layout_row="5" />
+        android:layout_row="6" />
+
+    <TextView
+        android:id="@+id/evOrgNameView"
+        android:layout_column="3"
+        android:layout_columnSpan="2"
+        android:layout_gravity="left"
+        android:layout_row="6" />
 
     <TextView
         android:id="@+id/evLocStreetView"
         android:layout_column="0"
-        android:layout_columnSpan="5"
+        android:layout_columnSpan="2"
         android:layout_gravity="left"
-        android:layout_row="6" />
+        android:layout_row="7" />
+
+    <TextView
+        android:id="@+id/evOrgPhoneView"
+        android:layout_column="3"
+        android:layout_columnSpan="2"
+        android:layout_gravity="left"
+        android:layout_row="7" />
 
     <TextView
         android:id="@+id/evLocZipView"
         android:layout_column="0"
         android:layout_gravity="left"
-        android:layout_row="7" />
+        android:layout_row="8" />
 
     <TextView
         android:id="@+id/evLocCityView"
         android:layout_column="1"
-        android:layout_columnSpan="4"
+        android:layout_columnSpan="2"
         android:layout_gravity="left"
-        android:layout_row="7" />
+        android:layout_row="8" />
+    
+    <TextView
+        android:id="@+id/evOrgEmailView"
+        android:layout_column="3"
+        android:layout_columnSpan="2"
+        android:layout_gravity="left"
+        android:layout_row="8" />
 
     <TextView
-        android:id="@+id/textMoreInfoView"
-        android:layout_gravity="left"
+        android:id="@+id/evLocPhoneView"
         android:layout_column="0"
-        android:layout_columnSpan="5"
-        android:layout_row="9"
-        android:text="@string/more_info" />
-
-    <TextView
-        android:id="@+id/textTelView"
-        android:layout_column="0"
+        android:layout_columnSpan="2"
         android:layout_gravity="left"
-        android:layout_row="10"
-        android:text="@string/phone"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
+        android:layout_row="9" />
+    
+    <TextView
+        android:id="@+id/evOrgWebView"
+        android:layout_column="3"
+        android:layout_columnSpan="2"
+        android:layout_gravity="left"
+        android:layout_row="9" />
 
     <TextView
-        android:id="@+id/evOrgPhoneView"
+        android:id="@+id/evLocEmailView"
         android:layout_column="1"
         android:layout_columnSpan="4"
         android:layout_gravity="left"
         android:layout_row="10" />
 
     <TextView
-        android:id="@+id/textEmailView"
-        android:layout_column="0"
-        android:layout_gravity="left"
-        android:layout_row="11"
-        android:text="@string/email"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/evOrgEmailView"
+        android:id="@+id/evLocWebView"
         android:layout_column="1"
         android:layout_columnSpan="4"
         android:layout_gravity="left"
         android:layout_row="11" />
-
-    <TextView
-        android:id="@+id/textWebView"
-        android:layout_column="0"
-        android:layout_gravity="left"
-        android:layout_row="12"
-        android:text="@string/web"
-        android:textAppearance="?android:attr/textAppearanceSmall" />
-
-    <TextView
-        android:id="@+id/evOrgWebView"
-        android:layout_column="1"
-        android:layout_columnSpan="4"
-        android:layout_gravity="left"
-        android:layout_row="12" />
 
 </GridLayout>
