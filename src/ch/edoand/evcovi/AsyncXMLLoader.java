@@ -72,13 +72,14 @@ public class AsyncXMLLoader extends AsyncTask<Void, Void, List<DisplayEvent>> {
 
   @Override
   protected void onPostExecute(List<DisplayEvent> events) {
-    Map<Long, DisplayEvent> loadedEvents = parentActivity.getEvents();
-    boolean initialLoad = (loadedEvents == null) || (loadedEvents.isEmpty());
+    EventViewAdapter adapter = parentActivity.getDataAdapter();
+    boolean initialLoad = (adapter == null) || (adapter.isEmpty());
     if(events.size() > 0) {
       int newEvents = 0;
       for(DisplayEvent event : events) {
-        if(!loadedEvents.containsKey(event.getId())) {
-          loadedEvents.put(event.getId(), event);
+        String id = event.getSortableId();
+        if(!adapter.containsKey(id)) {
+          adapter.put(id, event);
           newEvents++;
         }
       }

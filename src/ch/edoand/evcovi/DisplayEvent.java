@@ -37,6 +37,10 @@ public class DisplayEvent {
     return id;
   }
   
+  public String getSortableId() {
+    return getStartDateSortable() + getId();
+  }
+  
   public String getTitle() {
     return title;
   }
@@ -55,6 +59,12 @@ public class DisplayEvent {
   
   public Date getStartDate() {
     return startDate;
+  }
+
+  @SuppressLint("SimpleDateFormat")
+  public String getStartDateSortable() {
+    SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmm");
+    return format.format(getStartDate());
   }
   
   public void setStartDate(Date startDate) {

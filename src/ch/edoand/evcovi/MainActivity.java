@@ -2,7 +2,6 @@ package ch.edoand.evcovi;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -14,6 +13,7 @@ import android.view.GestureDetector;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
+import android.widget.AdapterViewFlipper;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,9 +27,9 @@ public class MainActivity extends Activity {
   
   private Map<String, Object> preferences;
   private GestureDetector gestureDetector;
-  private Map<Long, DisplayEvent> loadedEvents;
   private int eventPosOnDisplay;
   private Toast slideNumberToast;
+  private EventViewAdapter dataAdapter;
   
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +40,18 @@ public class MainActivity extends Activity {
     startActivityForResult(prefsIntent, PREFS_LOAD);
     //TODO Queer Layout und / oder in Kombi mit List View
     setContentView(R.layout.activity_main);
+    AdapterViewFlipper flipper = (AdapterViewFlipper) findViewById(R.id.evAdapterViewFlipper);
+//    flipper.setAdapter(new ArrayAdapter<DisplayEvent>(this, R.layout.event_slide, 
+//        new ArrayList<DisplayEvent>(loadedEvents.values())));
+    dataAdapter = new EventViewAdapter(this);
+    flipper.setAdapter(dataAdapter);
+    
     gestureDetector = new GestureDetector(this, new EventNavigationGestureListener(this));
     
     eventPosOnDisplay = 0;
     //TODO load saved data if available
-    loadedEvents = new TreeMap<Long, DisplayEvent>();
     
+    //TODO settings verbessern siehe DataManagementPreferenceActivity
     //TODO mail und web adressen verlinken
     //TODO datum mit kalender verlinken
     //TODO adressen auf maps verlinken
@@ -54,6 +60,17 @@ public class MainActivity extends Activity {
     //TODO gestures zum "abkreuzen" von events die man nicht mehr sehen will oder haken
     //       von favoriten
     //TODO alarm der regelmaessig Daten holt mit notification wenn inaktiv etc.
+    //TODO geofence alarm wenn man in area von event kommt
+
+//    FLIPPER EXAMPLE
+//    setContentView(R.layout.event_slide);
+//    AdapterViewFlipper flipper = (AdapterViewFlipper) findViewById(R.id.adapterViewFlipper1);
+//    ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.spinner_item, 
+//        new String[] { "s 1", "s 2", "s 3", "s 4", "s 5" });
+//    flipper.setAdapter(adapter);
+//    flipper.startFlipping();
+//    flipper.stopFlipping();
+//    flipper.showNext();
   }
 
   @Override
@@ -123,21 +140,27 @@ public class MainActivity extends Activity {
   
   void displayEvent() {
     //TODO animate change
-    if(loadedEvents.values().size() > 0) {
+    if(dataAdapter.getCount() > 0) {
       validateDisplayedEventId();
-      display((DisplayEvent)loadedEvents.values().toArray()[eventPosOnDisplay]);
+      
+      
+      
+      
+      //TODO automatisch?
+//      flipper.
+//      display((DisplayEvent)loadedEvents.values().toArray()[eventPosOnDisplay]);
       if(slideNumberToast != null) {
         //prevent queueing of toasts when going through slides fast
         slideNumberToast.cancel();
       }
-      slideNumberToast = Toast.makeText(this, (eventPosOnDisplay + 1) + " / " + loadedEvents.size(), 
-          Toast.LENGTH_SHORT);
+      slideNumberToast = Toast.makeText(this, (eventPosOnDisplay + 1) + " / " 
+          + dataAdapter.getCount(), Toast.LENGTH_SHORT);
       slideNumberToast.show();
     }
   }
   
   void validateDisplayedEventId() {
-    int eventsSize = loadedEvents.size();
+    int eventsSize = dataAdapter.getCount();
     if(eventPosOnDisplay < 0) {
       eventPosOnDisplay = eventsSize - (Math.abs(eventPosOnDisplay) % eventsSize);
     } else if(eventPosOnDisplay >= eventsSize) {
@@ -200,7 +223,7 @@ public class MainActivity extends Activity {
     return preferences;
   }
 
-  public Map<Long, DisplayEvent> getEvents() {
-    return loadedEvents;
+  public EventViewAdapter getDataAdapter() {
+    return dataAdapter;
   }
 }
